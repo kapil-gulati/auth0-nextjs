@@ -2,6 +2,8 @@ import getConfig from 'next/config'
 import React from 'react';
 import {Row, Col} from 'reactstrap';
 import {useUser, withPageAuthRequired} from '@auth0/nextjs-auth0/client';
+import {getQueryResponse} from "graphql-middleware";
+import {getResponse} from "http-middleware";
 
 import Loading from '../components/Loading';
 import ErrorMessage from '../components/ErrorMessage';
@@ -44,6 +46,13 @@ export function Profile() {
 
 export async function getServerSideProps(context) {
     try {
+
+        const results = await getResponse(
+            process.env.AEM_HOST_URI + process.env.AEM_GRAPHQL_ENDPOINT
+        )
+
+        console.log(results?.data?.recipeList)
+
         // get locale from context
         const {locale} = context
         const {serverRuntimeConfig} = getConfig()
@@ -55,6 +64,7 @@ export async function getServerSideProps(context) {
                 error: null
             },
         }
+
     } catch (e) {
         console.error('Unable to load profile page. An unexpected error occurred:', e)
         return {

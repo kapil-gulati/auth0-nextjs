@@ -1,0 +1,26 @@
+{
+  "name": "http-middleware",
+  "version": "0.0.1",
+  "packageManager": "yarn@3.5.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && mkdir dist && cp -r src/ dist && babel src --presets @babel/preset-env --out-dir dist",
+    "dev": "rm -rf dist && mkdir dist && cp -r src/ dist",
+    "prepublish": "npm run build",
+    "lint": "eslint .",
+    "format": "eslint --fix --ext .js,.jsx .",
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^1.2.2",
+    "qs": "^6.11.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.12.16",
+    "@babel/preset-env": "^7.20.2",
+    "babel-jest": "^29.4.2",
+    "eslint": "^8.34.0",
+    "eslint-config-custom": "*"
+  }
+}

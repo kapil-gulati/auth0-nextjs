@@ -3,3 +3,48 @@
 .idea
 .circleci
 .github
+
+*.pem
+*.zip
+*.gz
+
+**/dist/**
+/**/coverage/**
+
+# dependencies
+/node_modules
+.pnp.*
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+build/**
+dist/**
+.next/**
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+node_modules
+
+#specific
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions

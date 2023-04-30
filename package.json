@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "jest": "^29.5.0"
+  },
+  "name": "auth0-nextjs",
+  "version": "1.0.0",
+  "description": "kapil's lab work",
+  "main": "index.js",
+  "repository": "https://github.com/kapil-gulati/auth0-nextjs.git",
+  "author": "Kapil Gulati <kapil.gulati@abbott.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
