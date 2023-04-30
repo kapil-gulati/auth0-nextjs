@@ -5,7 +5,7 @@
 
 This is the sample code for the [Auth0 Next.js Quickstart](https://auth0.com/docs/quickstart/webapp/nextjs) using [nextjs-auth0](https://github.com/auth0/nextjs-auth0).
 
-Please check out [the sample application](./Sample-01) for an example of how to integrate the Auth0 Next.js SDK into your Next.js applications.
+Please check out [the sample application](./website) for an example of how to integrate the Auth0 Next.js SDK into your Next.js applications.
 
 ## What is Auth0?
 
