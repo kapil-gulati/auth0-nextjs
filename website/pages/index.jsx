@@ -7,7 +7,7 @@ export default function Index() {
   return (
     <>
       <Hero />
-      <hr />
+
       <Content />
     </>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from 'reactstrap';
+import {Button, Link, Spacer} from "@nextui-org/react";
 import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
 import Loading from '../components/Loading';
@@ -32,11 +32,11 @@ function External() {
   const { isLoading, response, error } = state;
 
   return (
-    <>
-      <div className="mb-5" data-testid="external">
-        <h1 data-testid="external-title">External API</h1>
+    <div className="container-fluid">
+      <div className="row" data-testid="external">
+        <p className="h4" data-testid="external-title">External API</p>
         <div data-testid="external-text">
-          <p className="lead">
+          <p className="h6">
             Ping an external API by clicking the button below
           </p>
           <p>
@@ -45,27 +45,29 @@ function External() {
           <p>
           An access token is sent as part of the request's <code>Authorization</code> header and the API will validate
           it using the API's audience value. The audience is the identifier of the API that you want to call (see{" "}
-          <a href="https://auth0.com/docs/get-started/dashboard/tenant-settings#api-authorization-settings">
+          <Link href="https://auth0.com/docs/get-started/dashboard/tenant-settings#api-authorization-settings">
             API Authorization Settings
-          </a>{" "}
-          for more info).
+          </Link>{" "}for more info).
           </p>
+          <Spacer></Spacer>
         </div>
-        <Button color="primary" className="mt-5" onClick={e => handle(e, callApi)} data-testid="external-action">
-          Ping API
-        </Button>
+
       </div>
+      <Button color="primary" onClick={e => handle(e, callApi)} data-testid="external-action">
+        Ping API
+      </Button>
+      <Spacer y={5}></Spacer>
       <div className="result-block-container">
         {isLoading && <Loading />}
         {(error || response) && (
           <div className="result-block" data-testid="external-result">
-            <h6 className="muted">Result</h6>
+            <p className="h6">Result</p>
             {error && <ErrorMessage>{error.message}</ErrorMessage>}
             {response && <Highlight>{JSON.stringify(response, null, 2)}</Highlight>}
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

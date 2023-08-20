@@ -1,19 +1,44 @@
 import React from 'react';
+import {Card, CardHeader, CardBody, CardFooter, Divider, Link, Image} from "@nextui-org/react";
 
-import Logo from './Logo';
 
 const Hero = () => (
-  <div className="hero my-5 text-center" data-testid="hero">
-    <Logo testId="hero-logo" />
-    <h1 className="mb-4" data-testid="hero-title">
-      Next.js Sample Project
-    </h1>
-
-    <p className="lead" data-testid="hero-lead">
-      This is a sample application that demonstrates an authentication flow for a Regular Web App, using{' '}
-      <a href="https://nextjs.org">Next.js</a>
-    </p>
-  </div>
+    <Card className="max-w-[800px]">
+        <CardHeader className="flex gap-3">
+            <Image
+                alt="logo"
+                height={40}
+                radius="sm"
+                src="https://www.firefly.org/images/pictures/firefly-closeup.jpg"
+                width={40}
+            />
+            <div className="flex flex-col">
+                <p className="text-md">Built with NextUI</p>
+                <p className="text-small text-default-500">nextui.org</p>
+            </div>
+        </CardHeader>
+        <Divider/>
+        <CardBody>
+            <p>This is a sample application that demonstrates an authentication flow.</p>
+        </CardBody>
+        <Divider/>
+        <CardFooter>
+            <Link
+                isExternal
+                showAnchorIcon
+                href="https://github.com/nextui-org/nextui"
+            >
+                Visit source code on GitHub.
+            </Link>
+            <Link
+                isExternal
+                showAnchorIcon
+                href="https://nextjs.org"
+            >
+                Next.js
+            </Link>
+        </CardFooter>
+    </Card>
 );
 
 export default Hero;

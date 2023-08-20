@@ -30,9 +30,8 @@ export function generateCustomerNumber(locale, env) {
 
 export default withApiAuthRequired(async function shows(req, res) {
   try {
-    const { accessToken } = await getAccessToken(req, res, {
-      scopes: ['read:shows']
-    });
+    const { accessToken } = await getAccessToken(req, res);
+    console.log(accessToken)
     const apiPort = process.env.API_PORT || 3101;
     const response = await fetch(`http://localhost:${apiPort}/api/shows`, {
       headers: {
@@ -45,15 +44,18 @@ export default withApiAuthRequired(async function shows(req, res) {
     console.log(generateCustomerNumber('en-GB', 'prod'))
     console.log(userId)
 
-    // const response4 = await fetch(`http://localhost:4000/api/private`, {
-    //   headers: {
-    //     Authorization: `Bearer ${accessToken}`
-    //   }
-    // });
-    //console.log(response4)
+    const response4 = await fetch(`http://localhost:4000/api/private-scoped`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`
+      }
+    });
+    const springboot = await response4.json()
+    console.log(shows)
+    console.log(springboot)
 
-    res.status(200).json(shows);
+    res.status(200).json(springboot);
   } catch (error) {
+    console.log(error)
     res.status(error.status || 500).json({ error: error.message });
   }
 });
